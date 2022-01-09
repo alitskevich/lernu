@@ -1,6 +1,12 @@
 import { objHasTruthyValue } from './utils';
 import { arraySortBy } from 'arrmatura/lib';
 
+const SORTING = {
+  nearest: 'DateStarted',
+  planned: 'Status',
+  free: 'FormatId',
+};
+
 export class Store {
   items: any;
   filteredItems: any;
@@ -14,6 +20,7 @@ export class Store {
   onSortByKey({ key = 'nearest' }) {
     return {
       sortedItems: null,
+      filteredItems: null,
       sortBy: key,
     };
   }
@@ -67,7 +74,7 @@ export class Store {
 
   getSortedItems() {
     if (!this.sortedItems) {
-      this.sortedItems = arraySortBy(this.items, this.sortBy);
+      this.sortedItems = arraySortBy(this.items, SORTING[this.sortBy]);
     }
 
     return this.sortedItems;

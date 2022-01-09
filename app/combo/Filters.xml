@@ -79,7 +79,7 @@
 
   <div class="training-list__quick-filters" ng-show="trainings">
     <strong class="ng-binding">Сортировать по: </strong>
-    <p ui:for="sort in :enums.sortByKeys" class="training-list__quick-filter {sort.id|or:nearest|equals:@info.sortBy|then:training-list__quick-filter--selected}" click="-> store.sortByKey|assignKeyValue:key:@sort.id">
+    <p ui:for="sort in :enums.sortByKeys" class="training-list__quick-filter {sort.id|or:nearest|equals:@info.sortBy|then:training-list__quick-filter--selected}" data-key="{sort.id}" click="-> store.sortByKey">
       {sort.name}
     </p>
   </div>
@@ -119,5 +119,4 @@
     </div>
 
   </div>
-
 </component>

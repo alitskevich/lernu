@@ -70,34 +70,35 @@
     <div class="item-content--mobile">
       <a href="/#!/Training/{id}" class="training-item__mobile-link" ng-click="onCardClick()">
         <div class="training-item__mobile-header training-item__header--{getPriceType(PricingId)}"></div>
-        <img class="training-item__mobile-training-icon" src="/Content/images/BigLogo/{MainSkillLogo}" alt="{ Name }">
-          <div class="training-item__mobile-info-row">
-            <div class="training-item__mobile-title">{Name  | MaxCharacters: false: 45}</div>
-            <span class="training-item__mobile-language">
-              <i class="fa fa-link training-item__ext-link" ng-if="isExternalTraining()"></i>
-              <span ng-repeat="language in ProgramLanguages">
+        <Image class="training-item__mobile-training-icon" src="BigLogo/{MainSkillLogo}" alt="{ Name }"/>
+        <div class="training-item__mobile-info-row">
+          <div class="training-item__mobile-title">{Name  | MaxCharacters: false: 45}</div>
+          <span class="training-item__mobile-language">
+            <i class="fa fa-link training-item__ext-link" ng-if="isExternalTraining()"></i>
+            <span ng-repeat="language in ProgramLanguages">
             {getTrainingLanguage(language)}
-              </span>
             </span>
-          </div>
+          </span>
+        </div>
 
-          <div class="training-item__mobile-info-row">
-            <div class="training-item__location training-item__mobile-location">
-              <span class="training-item__location--text" ng-if="!isShowLocationTooltip(trainingItem)">
+        <div class="training-item__mobile-info-row">
+          <div class="training-item__location training-item__mobile-location">
+            <span class="training-item__location--text" ng-if="!isShowLocationTooltip(trainingItem)">
             {getLocation(trainingItem)}
-              </span>
-              <rd-tooltip icon-class="training-item__location--tooltip-icon" content-class="training-item__location--tooltip" text-class="training-item__location--text" text="getLocation(trainingItem)" position="'top center'" ng-if="isShowLocationTooltip(trainingItem)" ng-init="setTooltipLocations(trainingItem)" ng-click="$event.preventDefault()">
-                <div class="tooltip-location" ng-repeat="(countryName, locations) in GroupedLocations">
-                  <p class="tooltip-country" ng-show="isShowTooltipCountry(trainingItem)">{countryName}<span ng-show="locations.length > 0">:</span>
-                  </p>
-                  <span class="tooltip-city" ng-repeat="location in locations | orderBy:'City'">{location.City}</span>
-                </div>
-              </rd-tooltip>
-            </div>
-            <div class="training-item__duration training-item__mobile-duration" ng-if="!isPlannedTraining()">{formatTrainingDate(trainingItem)}</div>
-            <div class="training-item__duration training-item__mobile-duration" ng-if="isPlannedTraining()">{'Planned' | translate}</div>
+            </span>
+            <rd-tooltip icon-class="training-item__location--tooltip-icon" content-class="training-item__location--tooltip" text-class="training-item__location--text" text="getLocation(trainingItem)" position="'top center'" ng-if="isShowLocationTooltip(trainingItem)" ng-init="setTooltipLocations(trainingItem)" ng-click="$event.preventDefault()">
+              <div class="tooltip-location" ng-repeat="(countryName, locations) in GroupedLocations">
+                <p class="tooltip-country" ng-show="isShowTooltipCountry(trainingItem)">{countryName}<span ng-show="locations.length > 0">:</span>
+                </p>
+                <span class="tooltip-city" ng-repeat="location in locations | orderBy:'City'">{location.City}</span>
+              </div>
+            </rd-tooltip>
           </div>
-        </a>
-      </div>
+          <div class="training-item__duration training-item__mobile-duration" ng-if="!isPlannedTraining()">{formatTrainingDate(trainingItem)}</div>
+          <div class="training-item__duration training-item__mobile-duration" ng-if="isPlannedTraining()">{'Planned' | translate}</div>
+        </div>
+      </a>
+
     </div>
-  </component>
+  </div>
+</component>

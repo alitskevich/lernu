@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 300;
@@ -42,7 +42,7 @@
     url('//training.by/Content/themes/Redesign/fonts/source-sans-pro-900.woff2') format('woff2'),
     url('//training.by/Content/themes/Redesign/fonts/source-sans-pro-900.woff') format('woff');
   font-display: swap;
-}
+} */
 @font-face {
   src: local('FontAwesome Brands'), local('FontAwesome-Brands'),
     url('//training.by/Content/themes/Redesign/fonts/fa-brands-400.woff') format('woff'),

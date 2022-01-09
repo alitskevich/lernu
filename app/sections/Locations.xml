@@ -1,43 +1,41 @@
 <component id="Locations">
   <div class="container section-ui">
-    <about-centers>      <!-- ngIf: defaultTabName -->
+    <about-centers>
       <div class="our-centers" ng-if="defaultTabName">
         <section class="" tab-title="'OurTrainingCenters' | translate" default-tab-name="defaultTabName">
           <h2 class="section-ui__title">Наши тренинг-центры</h2>
           <div class="tab-component">
             <div class="tab-nav">
               <div class="tab-nav__list separated-list">
-                <!-- ngRepeat: tab in tabs -->
-                <div ng-repeat="tab in tabs" class="tab-nav__item active" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+
+                <div class="tab-nav__item active" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
                   <span class="ng-binding">Беларусь</span>
                 </div>
-                <!-- end ngRepeat: tab in tabs -->
-                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+
+                <div class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
                   <span class="ng-binding">Венгрия</span>
                 </div>
-                <!-- end ngRepeat: tab in tabs -->
-                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+
+                <div class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
                   <span class="ng-binding">Польша</span>
                 </div>
-                <!-- end ngRepeat: tab in tabs -->
-                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+
+                <div class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
                   <span class="ng-binding">Россия</span>
                 </div>
-                <!-- end ngRepeat: tab in tabs -->
-                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+
+                <div class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
                   <span class="ng-binding">Украина</span>
                 </div>
-                <!-- end ngRepeat: tab in tabs -->
+
               </div>
             </div>
             <TabContent/>
           </div>
         </section>
       </div>
-      <!-- end ngIf: defaultTabName --></about-centers
-              >
+    </about-centers>
   </div>
-
 </component>
 
 <component id="TabContent">
