@@ -1,0 +1,103 @@
+<component id="Item">
+  <div class="training-item">
+    <div class="item-content--desktop">
+      <a href="/#!/Training/{id}" class="training-item__link" ng-click="onCardClick()">
+
+        <div class="training-item__header training-item__header--free">
+          <span class="training-item__price">{Pricing}</span>
+          <span class="training-item__format--online">{Format}</span>
+          <span class="training-item__language">
+            <i class="fa fa-link training-item__ext-link" ui:if="ExternalTrainingLink"></i>
+            <span>{Language}</span>
+            <span ui:for="language in ProgramLanguages">
+            {language}
+            </span>
+          </span>
+        </div>
+
+        <div class="training-item__inner">
+          <div class="training-item__icons">
+            <Image class="training-icon" src="BigLogo/{MainSkillLogo}" alt="{Name}"/>
+            <Image ui:if="AdditionalSkillsLogos.length" class="training-icon" ui:for="additionalSkillLogo in AdditionalSkillsLogos" src="BigLogo/{additionalSkillLogo}"/>
+          </div>
+          <div class="training-item__info-wrapper">
+            <div class="training-item__title">{Name|MaxCharacters:false:45}</div>
+            <div class="training-item__info">
+              <span class="training-item__info-type">{Type}</span>
+              <span class="training-item__info-level">{Level} {:strings.Level}</span>
+            </div>
+          </div>
+          <div class="training-item__location">
+            <span class="training-item__location--text" ng-if="!isShowLocationTooltip(trainingItem)">
+            {PlanLocations.0.Country} {PlanLocations.0.City}
+            </span>
+            <!-- <rd-tooltip icon-class="training-item__location-tooltip-icon" content-class="training-item__location-tooltip" text-class="training-item__location-text" text="getLocation(trainingItem)" position="'top center'" ng-if="isShowLocationTooltip(trainingItem)" ng-init="setTooltipLocations(trainingItem)" ng-click="$event.preventDefault()">
+              <div class="tooltip-location" ng-repeat="(countryName, locations) in GroupedLocations">
+                <p class="tooltip-country" ng-show="isShowTooltipCountry(trainingItem)">{countryName}<span ng-show="locations.length > 0">:</span>
+                </p>
+                <span class="tooltip-city" ng-repeat="location in locations | orderBy:'City'">{location.City}</span>
+              </div>
+            </rd-tooltip> -->
+          </div>
+
+          <div class="training-item__duration" ui:if="DateStarted">{DateStarted|date}</div>
+          <div class="training-item__duration" ui:if="DateStarted|not">{:strings.Planned}</div>
+        </div>
+      </a>
+      <div class="training-item__button" ui:if="false">
+        <button class="button button-blue" data-action="external-register" ng-if="isExternalTraining()" ng-click="externalRegisterOnTraining()">
+        {:strings.Register}
+        </button>
+
+        <!-- <button class="button button-blue" data-action="register" ng-if="!isExternalTraining()" ng-show="!isPlannedTraining() && (!isRegisteredTraining() || (isRegisteredTraining() && !isUserTemporaryRejected() && (isAllowReRegister() || !isAllowCancelRegistration())))" ng-disabled="(isRegisteredTraining() && !isAllowReRegister() && !isAllowCancelRegistration()) || isDisabledTraining()" ng-click="registerOnTraining()">
+        { 'Register' | translate }
+        </button>
+
+        <button class="button button-blue" data-action="reregister" ng-if="!isExternalTraining()" ng-show="isRegisteredTraining() && isUserTemporaryRejected()" ng-click="reRegisterOnTraining()">
+        { 'Register' | translate }
+        </button>
+
+        <button class="button button-blue" data-action="subscribe" ng-if="!isExternalTraining()" ng-show="isPlannedTraining()" ng-click="subscribeOnTraining()">
+        { 'Subscribe' | translate }
+        </button>
+
+        <button class="button button-green" data-action="cancel" ng-if="!isExternalTraining()" ng-show="isRegisteredTraining() && isAllowCancelRegistration()" ng-click="cancelTraining()">
+        { 'Cancel' | translate }
+        </button> -->
+      </div>
+    </div>
+
+    <div class="item-content--mobile">
+      <a href="/#!/Training/{id}" class="training-item__mobile-link" ng-click="onCardClick()">
+        <div class="training-item__mobile-header training-item__header--{getPriceType(PricingId)}"></div>
+        <img class="training-item__mobile-training-icon" src="/Content/images/BigLogo/{MainSkillLogo}" alt="{ Name }">
+          <div class="training-item__mobile-info-row">
+            <div class="training-item__mobile-title">{Name  | MaxCharacters: false: 45}</div>
+            <span class="training-item__mobile-language">
+              <i class="fa fa-link training-item__ext-link" ng-if="isExternalTraining()"></i>
+              <span ng-repeat="language in ProgramLanguages">
+            {getTrainingLanguage(language)}
+              </span>
+            </span>
+          </div>
+
+          <div class="training-item__mobile-info-row">
+            <div class="training-item__location training-item__mobile-location">
+              <span class="training-item__location--text" ng-if="!isShowLocationTooltip(trainingItem)">
+            {getLocation(trainingItem)}
+              </span>
+              <rd-tooltip icon-class="training-item__location--tooltip-icon" content-class="training-item__location--tooltip" text-class="training-item__location--text" text="getLocation(trainingItem)" position="'top center'" ng-if="isShowLocationTooltip(trainingItem)" ng-init="setTooltipLocations(trainingItem)" ng-click="$event.preventDefault()">
+                <div class="tooltip-location" ng-repeat="(countryName, locations) in GroupedLocations">
+                  <p class="tooltip-country" ng-show="isShowTooltipCountry(trainingItem)">{countryName}<span ng-show="locations.length > 0">:</span>
+                  </p>
+                  <span class="tooltip-city" ng-repeat="location in locations | orderBy:'City'">{location.City}</span>
+                </div>
+              </rd-tooltip>
+            </div>
+            <div class="training-item__duration training-item__mobile-duration" ng-if="!isPlannedTraining()">{formatTrainingDate(trainingItem)}</div>
+            <div class="training-item__duration training-item__mobile-duration" ng-if="isPlannedTraining()">{'Planned' | translate}</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </component>

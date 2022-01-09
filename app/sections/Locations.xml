@@ -1,0 +1,79 @@
+<component id="Locations">
+  <div class="container section-ui">
+    <about-centers>      <!-- ngIf: defaultTabName -->
+      <div class="our-centers" ng-if="defaultTabName">
+        <section class="" tab-title="'OurTrainingCenters' | translate" default-tab-name="defaultTabName">
+          <h2 class="section-ui__title">Наши тренинг-центры</h2>
+          <div class="tab-component">
+            <div class="tab-nav">
+              <div class="tab-nav__list separated-list">
+                <!-- ngRepeat: tab in tabs -->
+                <div ng-repeat="tab in tabs" class="tab-nav__item active" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+                  <span class="ng-binding">Беларусь</span>
+                </div>
+                <!-- end ngRepeat: tab in tabs -->
+                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+                  <span class="ng-binding">Венгрия</span>
+                </div>
+                <!-- end ngRepeat: tab in tabs -->
+                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+                  <span class="ng-binding">Польша</span>
+                </div>
+                <!-- end ngRepeat: tab in tabs -->
+                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+                  <span class="ng-binding">Россия</span>
+                </div>
+                <!-- end ngRepeat: tab in tabs -->
+                <div ng-repeat="tab in tabs" class="tab-nav__item" ng-class="{active: active == tab.name}" ng-click="switchTab(tab)">
+                  <span class="ng-binding">Украина</span>
+                </div>
+                <!-- end ngRepeat: tab in tabs -->
+              </div>
+            </div>
+            <TabContent/>
+          </div>
+        </section>
+      </div>
+      <!-- end ngIf: defaultTabName --></about-centers
+              >
+  </div>
+
+</component>
+
+<component id="TabContent">
+  <div class="tab-content">
+    <div class="tab-content__list">
+      <div ng-repeat="country in existingCenterCountries" class="ng-scope">
+        <div ng-show="isVisible()" tab-name="country.Id" tab-title="country.Name" tab-is-active="tabIsActive">
+          <div class="slider-component slider-component--our-centers" ng-if="tabIsActive">
+            <owl-carousel class="owl-carousel owl-theme owl-loaded owl-drag" options="owlCarousel">
+              <div class="owl-stage-outer">
+                <div class="owl-stage" style="
+                                        transform: translate3d(0px, 0px, 0px);
+                                        transition: all 0s ease 0s;
+                                        width: 1440px;
+                                      ">
+                  <div class="owl-item active" style="width: 240px">
+                    <div ng-repeat="center in trainingCenters | filter: { CountryId: country.Id } : true" class="our-centers__item">
+                      <div class="our-centers__item-image" ng-init="getCenterImage(center)" style="">
+                        <a href="/#!/TrainingCenter/25" class="our-centers__item-link">
+                          <span class="our-centers__item-city">Минск</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-nav">
+                <button type="button" role="presentation" class="slider-arrow slider-arrow--prev"></button>
+                <button type="button" role="presentation" class="slider-arrow slider-arrow--next"></button>
+              </div>
+              <div class="owl-dots disabled"></div>
+            </owl-carousel>
+          </div>
+          <!-- end ngIf: tabIsActive -->
+        </div>
+      </div>
+    </div>
+  </div>
+</component>

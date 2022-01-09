@@ -1,0 +1,71 @@
+<component id="StatusMessage">
+  <div class="status-message" data-type="" style="display: none"></div>
+</component>
+
+<component id="HeroBanner">
+  <div class="hero-banner hero-banner--home">
+    <div class="container">
+      <div class="hero-banner__content">
+        <div class="hero-banner__heading">Jumpstart &amp; Develop<br />
+Your Career with Us</div>
+      </div>
+    </div>
+  </div>
+</component>
+
+<component id="Image">
+  <img class="{class}" src="//training.by/Content/images/{src}" alt="{alt}"/>
+</component>
+
+<component id="Section">
+  <section class="section-ui">
+    <div class="container">
+      <SectionTitle name="{title}"/>
+      <ui:slot/>
+    </div>
+  </section>
+</component>
+
+<component id="SectionTitle">
+  <h1 class="section-ui__title">{name}</h1>
+</component>
+
+<component id="SubscribeButton">
+  <div class="training-list__subscribe" ng-class="{'training-list__no-trainings': filteredTrainings.length == 0 &amp;&amp; (activeDropDown || activeDropDownMobile)}">
+    <div class="training-list__subscribe-text">
+      <span ng-show="filteredTrainings.length == 0" class="ng-binding ng-hide">Нет доступных тренингов.</span>
+      <span class="ng-binding">Подпишитесь на обновления. Мы оповестим вас, когда откроется ближайший набор по выбранному направлению.</span>
+    </div>
+    <button class="training-list__subscribe-btn" ng-click="subscribeOnTraining()">
+                    Подписаться
+    </button>
+  </div>
+</component>
+
+<component id="RdStripes">
+  <rd-stripes height="110px">
+    <div class="rd-stripes" style="
+                  background: repeating-linear-gradient(135deg, #ededed, #ededed 5px, white 0, white 17px);
+                  width: 100%;
+                  height: 110px;
+                ">    </div
+            >  </rd-stripes>
+</component>
+
+<component id="AskQuestion">
+  <div class="ask-question">
+    <div class="ask-question__button" ng-click="askQuestionPopup()" ask-question=""></div>
+  </div>
+</component>
+
+<component id="TalkToUs">
+  <section class="talk-to-us section-ui">
+    <div class="container">
+      <div class="section-ui__title">хотите узнать больше о тренингах?</div>
+      <div class="talk-to-us__button" ng-click="askQuestionPopup()">
+        <div class="button button--blue">Связаться с нами</div>
+      </div>
+    </div>
+  </section>
+</component>
+

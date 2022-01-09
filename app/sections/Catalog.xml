@@ -1,0 +1,21 @@
+<component id="Catalog">
+  <section class="training-list section-ui section-ui--bg-gray">
+    <div class="container" id="training-list">
+      <SectionTitle name="ТРЕНИНГИ"/>
+
+      <Filters info="<- store.filterInfo"/>
+
+      <div class="training-list__container training-list">
+        <PlaceholderArea/>
+        <Item ui:for="item of <-store.actualItems" ui:props="{item}"/>
+      </div>
+
+      <div class="training-list__more-trainings">
+        <!-- ngIf: (filteredTrainings.length >= limitViewTrainings) && (limitViewTrainings < trainings.length) -->
+      </div>
+
+      <SubscribeButton/>
+
+    </div>
+  </section>
+</component>

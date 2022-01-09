@@ -1,0 +1,43 @@
+{
+  "name": "elearnu",
+  "version": "1.0.2",
+  "description": "poc",
+  "scripts": {
+    "start": "npx webpack-dev-server --hot --contentBase public",
+    "build": "npx webpack-cli --mode production",
+    "extract": "node tools/extract.js > tools/data.json",
+    "deploy:host": "firebase use ${NODE_ENV:-default} && firebase deploy --only hosting",
+    "release": "npx webpack-cli && npm publish"
+  },
+  "author": "alitskevich",
+  "main": "public/app.js",
+  "files": [
+    "app"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.2.1",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.30.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.5",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "raw-loader": "^4.0.2",
+    "typescript": "^4.4.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "arrmatura": "^5.0.3"
+  }
+}

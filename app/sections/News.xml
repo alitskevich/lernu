@@ -1,0 +1,109 @@
+<component id="News">
+  <section class="news-list news section-ui">
+    <div class="container">
+      <div class="section-ui__title">Блог</div>
+      <div class="tab-component">
+        <news-categories is-news-loaded="isCarouselReady" news="allNews" news-limit="newsLoadLength">
+          <div class="tab-nav">
+            <div class="tab-nav__list separated-list">
+              <!-- ngRepeat: category in categories -->
+              <div class="tab-nav__item active" ng-repeat="category in categories" ng-class="{'active': currentCategoryId === category.Id}" ng-click="changeNewsCategory(category.Id)" data-id="1">
+                <span class="ng-binding">НОВОСТИ</span>
+              </div>
+              <!-- end ngRepeat: category in categories -->
+              <div class="tab-nav__item" ng-repeat="category in categories" ng-class="{'active': currentCategoryId === category.Id}" ng-click="changeNewsCategory(category.Id)" data-id="2">
+                <span class="ng-binding">ИСТОРИИ</span>
+              </div>
+              <!-- end ngRepeat: category in categories -->
+              <div class="tab-nav__item" ng-repeat="category in categories" ng-class="{'active': currentCategoryId === category.Id}" ng-click="changeNewsCategory(category.Id)" data-id="3">
+                <span class="ng-binding">МАТЕРИАЛЫ</span>
+              </div>
+              <!-- end ngRepeat: category in categories -->
+              <div class="tab-nav__item" ng-repeat="category in categories" ng-class="{'active': currentCategoryId === category.Id}" ng-click="changeNewsCategory(category.Id)" data-id="6">
+                <span class="ng-binding">ТЕХНОЛОГИИ</span>
+              </div>
+              <!-- end ngRepeat: category in categories -->
+              <div class="tab-nav__item no-sep" ng-repeat="category in categories" ng-class="{'active': currentCategoryId === category.Id}" ng-click="changeNewsCategory(category.Id)" data-id="7">
+                <span class="ng-binding">SOFT SKILLS</span>
+              </div>
+              <!-- end ngRepeat: category in categories -->
+              <div class="tab-nav__item" ng-repeat="category in categories" ng-class="{'active': currentCategoryId === category.Id}" ng-click="changeNewsCategory(category.Id)" data-id="8">
+                <span class="ng-binding">СОБЫТИЯ</span>
+              </div>
+              <!-- end ngRepeat: category in categories -->
+            </div>
+          </div>
+        </news-categories>
+        <div class="tab-content">
+          <div class="tab-content__list">
+            <div class="tab-content__item tab-content__item--active">
+              <div class="slider-component slider-component--news">
+                <owl-carousel class="owl-carousel owl-theme news-list__container slider__list owl-loaded owl-drag" ng-if="isCarouselReady" options="owlCarousel">
+                  <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2880px">
+                      <div class="owl-item active" style="width: 360px">
+                        <div class="news-item slider__item" ng-repeat="newsItem in allNews">
+                          <div class="news__item-content" news-item="newsItem" categories="categories">
+                            <div class="news__item-image-holder">
+                              <a href="#!/News/518" ng-class="newsClass" news-id="newsItem.Id" image-name="newsItem.ImageName" news-class="news__item-image-wrapper" news-category="newsCategory.Name" class="ng-isolate-scope news__item-image-wrapper">
+                                <img class="news__item-image" src="//training.by/News_storage/518/Blog 8_04480245.png" alt="Blog 8_04480245.png" />
+                                <div class="news__item-category" ng-show="newsCategory">
+                                            НОВОСТИ
+                                </div>
+                              </a>
+                            </div>
+
+                            <div class="news__item-info">
+                              <div class="news__item-data">
+                                <!-- ngIf: newsItem.HashTags.length -->
+                                <div class="news__item-hashtags" ng-if="newsItem.HashTags.length">
+                                  <!-- ngRepeat: hashtag in newsItem.HashTags -->
+                                  <a class="news__item-hashtag" ng-repeat="hashtag in newsItem.HashTags" ui-sref="news.hashtagPage({hashtagUrl: hashtag.UrlName})" href="#!/News/Hashtag/english">#ENGLISH</a
+                                            >                                  <!-- end ngRepeat: hashtag in newsItem.HashTags -->
+                                  <a class="news__item-hashtag" ng-repeat="hashtag in newsItem.HashTags" ui-sref="news.hashtagPage({hashtagUrl: hashtag.UrlName})" href="#!/News/Hashtag/quiz">#QUIZ</a
+                                            >                                  <!-- end ngRepeat: hashtag in newsItem.HashTags -->
+                                </div>
+                                <!-- end ngIf: newsItem.HashTags.length -->
+
+                                <div class="news__item-date">24 декабря 2021</div>
+                                <div class="news__item-views">831</div>
+                                <div class="news__item-likes">13</div>
+                              </div>
+
+                              <a href="#!/News/518" class="news__item-title">
+                                          ❄️Quiz: Новогодние традиции в разных странах
+                              </a>
+                              <div class="news__item-description" ng-bind-html="newsItem.Intro">
+                                <p>
+                                            В EPAM можно встретить представителей со всего мира: коллег из Японии и
+                                            Мексики или заказчиков из Испании и Австралии. У каждой страны своя
+                                            уникальная культура, но мы все отмечаем Новый год и Рождество. Давай
+                                            посмотрим, насколько хорошо ты разбираешься в праздничных традициях разных
+                                            стран?
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="owl-nav">
+                    <button type="button" role="presentation" class="slider-arrow slider-arrow--prev"></button>
+                    <button type="button" role="presentation" class="slider-arrow slider-arrow--next"></button>
+                  </div>
+                  <div class="owl-dots disabled"></div>
+                </owl-carousel>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-list__all-news">
+        <a href="#!/News" class="news-list__all-news-link">Все статьи</a>
+      </div>
+    </div>
+  </section>
+
+</component>

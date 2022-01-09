@@ -1,0 +1,49 @@
+<component id="App">
+
+  <Store ui:ref="store" items=":catalog"/>
+
+  <!-- <NavigationService ui:ref="nav" /> -->
+
+  <Header/>
+
+  <StatusMessage/>
+
+  <MainPage/>
+
+  <AskQuestion/>
+
+  <Footer/>
+
+  <div class="overlay hidden"></div>
+
+</component>
+
+<component id="MainPage">
+
+  <MainPlaceholder/>
+
+  <div class="content">
+
+    <div class="home-page">
+
+      <HeroBanner/>
+
+      <Catalog/>
+
+      <Locations/>
+
+      <RdStripes/>
+
+      <News/>
+
+      <RdStripes/>
+
+      <SkillsList/>
+
+      <TalkToUs/>
+
+    </div>
+
+  </div>
+
+</component>

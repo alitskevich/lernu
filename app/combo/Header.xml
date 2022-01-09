@@ -1,0 +1,71 @@
+<component id="Header">
+
+  <header id="header">
+    <div class="container">
+      <div class="logo-container">
+        <!-- <a href="/#!/Home" class="logo logo-pam"></a> -->
+
+        <div class="logo logo--training-center"></div>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <a class="main-nav__item" href="/#!/TrainingList" title="" route-link-active="">Список тренингов</a>
+          <a class="main-nav__item" href="/#!/About" title="" route-link-active="">О нас</a>
+          <a class="main-nav__item" href="/#!/News" title="" route-link-active="">Блог</a>
+          <a class="main-nav__item" href="/#!/FAQ" title="" route-link-active="">FAQ</a>
+        </ul>
+      </nav>
+
+      <div class="header-controls">
+        <div class="header-control location-selector">
+          <div class="location-selector__globe"></div>
+          <div class="location-selector__panel">
+            <div class="container">
+              <div class="location-selector__section">
+                <div class="location-selector__title">Выберите язык</div>
+                <div class="location-selector__list languages-list">
+                  <div class="location-selector__item">
+                    <a class="" ng-click="$event.preventDefault(); switchLocaleUrl('en-US');" href="/UserProfile/SetLocale?locale=en-US">English
+                    </a>
+                  </div>
+                  <div class="location-selector__item">
+                    <a class="active" ng-click="$event.preventDefault(); switchLocaleUrl('ru-RU');" href="#">Русский
+                    </a>
+                  </div>
+                  <div class="location-selector__item">
+                    <a class="" ng-click="$event.preventDefault(); switchLocaleUrl('uk-UA');" href="/UserProfile/SetLocale?locale=uk-UA">Українська
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-control header-auth">
+          <a href="https://training.by/Auth/Login?redirectUrl=#!" class="header-auth__signin">
+            <span class="header-auth__signin-icon"></span>
+                Войти
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-nav">
+        <button class="mobile-nav__opener" aria-expanded="false">
+          <span class="ng-binding">МЕНЮ</span>
+          <span class="mobile-nav__cross"></span>
+        </button>
+        <nav class="mobile-nav__dropdown">
+          <ul class="mobile-nav__list">
+            <a class="mobile-nav__item" href="/#!/TrainingList" title="" route-link-active="">Список тренингов</a>
+            <a class="mobile-nav__item" href="/#!/About" title="" route-link-active="">О нас</a>
+            <a class="mobile-nav__item" href="/#!/News" title="" route-link-active="">Блог</a>
+            <a class="mobile-nav__item" href="/#!/FAQ" title="" route-link-active="">FAQ</a>
+            <a href="https://training.by/Auth/Login?redirectUrl=#!" class="mobile-nav__item mobile-nav__sign-in">Войти</a>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+</component>

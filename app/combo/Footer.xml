@@ -1,0 +1,82 @@
+<component id="Footer">
+  <footer id="footer">
+    <div class="timezone-modal" timezone-modal="">
+      <div>
+        <p class="timezone-modal__text">
+              Часовой пояс вашего компьютера не соответствует сохраненному в настройках. Пожалуйста, выберите Ваш
+              текущий часовой пояс:
+        </p>
+        <select class="timezone-modal__select ng-pristine ng-untouched ng-valid" rw-chosen="timeZones" ng-model="currentUserData.TimeZone" ng-change="onTimezoneChange()" ng-options="item.Value as item.Text for item in timeZones" style="display: none">
+          <option value="?" selected="selected"></option>
+        </select>
+        <div class="
+                chosen-container chosen-container-single
+                timezone-modal__select
+                ng-pristine ng-untouched ng-valid
+                chosen-container-single-nosearch
+              " title="" style="width: 42px">
+          <a class="chosen-single chosen-default">
+            <span>Выберите вариант</span>
+            <div>
+              <b></b>
+            </div>
+          </a>
+          <div class="chosen-drop">
+            <div class="chosen-search">
+              <input class="chosen-search-input" type="text" autocomplete="off" readonly="" />
+            </div>
+            <ul class="chosen-results"></ul>
+          </div>
+        </div>
+        <i class="fa fa-times timezone-modal__close" ng-click="onCloseTimezonePopup()"></i>
+      </div>
+    </div>
+
+    <!-- <div class="cookie-modal" style="display: block">
+          <div class="cookie-modal__wrapper">
+            <div class="cookie-modal__text" style="cursor: pointer">
+              <p class="cookie-modal__resources-text">
+                С целью улучшения работы сайта, повышения удобства и эффективности работы посетителей с сайтом,
+                предоставления решений и услуг, наиболее отвечающих потребностям посетителей сайта, определения
+                предпочтений посетителей, а также для обеспечения технической возможности функционирования сайта EPAM
+                использует cookie (файлы с данными о прошлых посещениях сайта). Продолжая использовать данный сайт и
+                нажимая кнопку ниже, вы подтверждаете свое согласие на обработку и использование файлов cookie. EPAM
+                серьезно относится к защите персональных данных —
+                <a href="https://login.telescopeai.com/core/interaction/showpolicy?type=CommonCookiePolicy&amp;country=RU" target="_blank">ознакомьтесь с условиями и принципами их обработки.</a
+                ><br />Вы можете запретить сохранение cookie в настройках своего браузера.
+              </p>
+            </div>
+            <div class="cookie-modal__button">
+              <button class="cookie-modal__action">принять</button>
+            </div>
+          </div>
+        </div> -->
+
+    <div class="container">
+      <div class="footer-copyrights">
+        <!-- <p>
+          © 2022. sss , Inc. <span class="hidden-xs hidden-sm">
+          <br />
+        </span> Все права защищены.
+      </p> -->
+      </div>
+
+      <nav class="footer-nav">
+        <ul class="footer-nav__list separated-list">
+          <a class="footer-nav__item" href="https://investors.pam.com/investors" rel="nofollow">Инвесторам</a>
+          <a class="footer-nav__item" href="https://wwwm.com/about/who-we-are/contact" rel="nofollow">Контакты</a>
+          <a class="footer-nav__item no-sep" href="https://login.telescoai.com/core/interaction/showpolicy?type=PrivacyPolicy&amp;country=RU" rel="nofollow">Политика конфиденциальности</a>
+          <a class="footer-nav__item" href="https://login.telescoai.com/core/interaction/showpolicy?type=CommonPrivacyNotice" rel="nofollow">Уведомление о конфиденциальности</a>
+        </ul>
+      </nav>
+
+      <div class="footer-socials">
+        <div class="footer-social-list social-list">
+          <a href="https://twitter.com/msystems" class="social-item social-item--twitter" title="Twitter" target="_blank" rel="nofollow noopener noreferrer"></a>
+          <a href="https://www.facebook.com/Global" class="social-item social-item--facebook" title="Facebook" target="_blank" rel="nofollow noopener noreferrer"></a>
+          <a href="https://www.linkedin.com/company/m-systems" class="social-item social-item--linkedin" title="Linkedin" target="_blank" rel="nofollow noopener noreferrer"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</component>

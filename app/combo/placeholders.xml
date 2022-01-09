@@ -1,0 +1,51 @@
+<component id="MainPlaceholder">
+
+  <div id="main-placeholder" class="placeholder-area" style="display: none">
+    <div class="placeholder-content">
+      <div class="placeholder-content_item-header"></div>
+      <div class="placeholder-content_item-half-line"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+    </div>
+    <hr />
+    <div class="placeholder-content">
+      <div class="placeholder-content_item-header"></div>
+      <div class="placeholder-content_item-half-line"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+    </div>
+    <div class="placeholder-content">
+      <div class="placeholder-content_item-header"></div>
+      <div class="placeholder-content_item-half-line"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+      <div class="placeholder-content_item-text"></div>
+    </div>
+  </div>
+</component>
+
+<component id="PlaceholderArea">
+  <div class="container" modal-preloader="trainings" style="display: none">
+
+    <div class="placeholder-area">
+      <div class="placeholder-content">
+        <div class="placeholder-content_item-header"></div>
+        <div class="placeholder-content_item-half-line"></div>
+        <div class="placeholder-content_item-text"></div>
+        <div class="placeholder-content_item-text"></div>
+        <div class="placeholder-content_item-text"></div>
+        <div class="placeholder-content_item-text"></div>
+        <div class="placeholder-content_item-text"></div>
+      </div>
+    </div>
+  </div>
+
+</component>

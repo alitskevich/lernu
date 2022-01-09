@@ -1,0 +1,34 @@
+<component id="SkillItem">
+  <a class="skill-item skill-item--{isLinked|then:linked}">
+    <div class="skill-item__title">{Name}</div>
+    <Image class="skill-item__icon" src="BigLogo/{LogoFileName}" alt="{Name}" />
+  </a>
+</component>
+
+<component id="SkillCard">
+  <div class="our-skills-item" ng-class="{'opened-description': isOpened}">
+    <div class="our-skills-item__inner">
+      <div class="our-skills-item__icons">
+        <Image class="our-skills-icon" src="BigLogo/{ LogoFileName }" alt="{ Name }"/>
+      </div>
+      <div class="our-skills-item__title">{ Name }</div>
+      <div class="our-skills-item__description" data-id="{id}" click="{click}">
+      { Description | ChangeSpaces | MaxCharacters: isOpened: 90 }
+      </div>
+      <div class="our-skills-item__available">
+        <span ng-click="addSkillToFilter(skill)" class="our-skills-item__available-link">
+        { 'Available_trainings' | translate }
+        </span>
+      </div>
+    </div>
+  </div>
+</component>
+
+<component id="SkillsList">
+  <Section title="НАПРАВЛЕНИЯ ТРЕНИНГОВ">
+    <div class="skills-list">
+      <PlaceholderArea/>
+      <SkillItem ui:for="skill in :skills" ui:props="{skill}"/>
+    </div>
+  </Section>
+</component>

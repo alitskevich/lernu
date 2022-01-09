@@ -1,0 +1,123 @@
+<component id="FilterTabs">
+  <div class="navigation-item {tab.id|equals:@value|then:active}" click="{change|bindArgs:@tab.id}" ui:for="tab in :enums.filterTabs">{tab.name}</div>
+</component>
+
+<component id="FilterCheckbox">
+  <label class="location__not-active-label {value|then:location__location-active-label}">
+    <input type="checkbox" click="{change}" data-key="{key}" data-value="{value|not}" checked="{value|truthy}" />
+    <span class="checkmark"></span>
+    {caption}
+    <div icon-class="filter-type__question-icon" content-class="filter-type__tooltip" ui:if="tooltip" position="tooltipClass">
+      {tooltip}
+    </div>
+  </label>
+</component>
+
+<component id="FilterTabs_LocationTab">
+  <div class="location">
+    <div class="location__countries">
+      <ul class="location__countries-list-countries">
+        <li ui:for="location in :locations|arraySortBy:name">
+          <div class="location__not-active-label city-name {location.id|equals:@country.id|then:location__location-active-label} {location.id|equals:@country.id|then:location__location-active-label-country}" data="{location}" click="->country">
+            {location.name} ({location.cities.length})
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="location__cities">
+      <div class="location__cities--all" ui:if="country">
+        <FilterCheckbox change="-> store.checkLocationCountry" key="{country.id}" value="{checkedCountries|dot:@country.id}" caption="Выбрать все города: {country.name}"/>
+      </div>
+      <ul class="location__cities-list-cities" ui:if="country.cities.length">
+        <li class="cities" ui:for="city in country.cities|arraySortBy:name">
+          <FilterCheckbox change="-> store.checkLocationCity" key="{city.id}" value="{checkedCities|dot:@city.id}" caption="{city.name}"/>
+        </li>
+      </ul>
+    </div>
+  </div>
+</component>
+
+<component id="FilterTabs_SkillTab">
+  <div class="location">
+    <div class="location__cities location__skills">
+      <ul class="location__cities-list-cities location__cities-list-skills">
+        <li class="cities" ui:for="skill in :skills">
+          <FilterCheckbox change="-> store.checkSkill" key="{skill.id}" value="{checkedSkills|dot:@skill.id}" caption="{skill.Name}"/>
+        </li>
+      </ul>
+    </div>
+  </div>
+</component>
+
+<component id="FilterTabs_TrainingTypeTab">
+  <div class="filter-type">
+    <div class="filter-type__container" ui:for="type in :enums.trainingTypes">
+      <div class="filter-type__heading">
+        <div>{type.name}</div>
+      </div>
+      <ul class="filter-type__list">
+        <li class="filter-type__item" ui:for="item in type.items">
+          <FilterCheckbox change="-> store.checkTrainingType" key="{item.id}" value="{checkTrainingTypes|dot:@item.id}" caption="{item.name}" tooltip2="{item.notes}"/>
+        </li>
+      </ul>
+    </div>
+  </div>
+</component>
+
+<component id="FilterField">
+  <div class="filter-field__input-city">
+    <div class="filter-field__input-city-country">
+      <span class="filter-field__input-city-country-name">
+        {name}
+        <span click="{remove}" class="filter-field__input-item-close-icon"></span>
+      </span>
+    </div>
+  </div>
+</component>
+
+<component id="Filters">
+
+  <div class="training-list__quick-filters" ng-show="trainings">
+    <strong class="ng-binding">Сортировать по: </strong>
+    <p ui:for="sort in :enums.sortByKeys" class="training-list__quick-filter {sort.id|or:nearest|equals:@info.sortBy|then:training-list__quick-filter--selected}" click="-> store.sortByKey|assignKeyValue:key:@sort.id">
+      {sort.name}
+    </p>
+  </div>
+
+  <div class="filters" selected-skills="selectedSkills" selected-location-list="selectedLocationList" selected-type-list="selectedTypeList" active-drop-down="activeDropDown" active-drop-down-mobile="activeDropDownMobile" location-names="locationNames" trainings-names="trainingsNames">
+    <div class="filter-toggle">
+
+      <form autocomplete="off" class="training-search-form ng-pristine ng-valid" data-opened="{opened|not}" click="->opened|dot:opened">
+        <input type="text" class="input-field-search ng-pristine ng-valid ng-touched" name="training-filter-input" ng-model="searchFilter" readonly="" placeholder="Найди подходящий тренинг" />
+        <div class="filter-toggle__arrow-icon {opened|then:arrow-icon-rotate}"></div>
+      </form>
+
+      <div class="drop-down drop-down-choose {opened|then:drop-down-visibility}">
+        <div class="drop-down-choose__header">
+          <FilterTabs change="-> currentTab" value="{currentTab|or:Location}"/>
+        </div>
+        <div class="drop-down-choose__frame">
+          <div class="drop-down-choose__frame-active">
+            <ui:tag tag="FilterTabs_{currentTab|or:Location}Tab" ui:props="{info}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chosen-area" ui:if="info.hasFilters">
+      <div class="filter-field" ui:if="info.hasLocationsFilters">
+        <div class="filter-field__title">
+            Выбранные локации:
+          <span class="filter-field__input-item-close-icon filter-field__input-item-close-icon--common" click="-> store.clearAllLocations"></span>
+        </div>
+        <div class="cities-wrapper">
+          <ui:fragment ui:for="country in :locations">
+            <FilterField kind="city" ui:for="city in country.cities" ui:if="info.checkedCities|dot:@city.id" name="{city.name}" remove="->store.checkLocationCity|assignKeyValue:key:@city.id"/>
+          </ui:fragment>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</component>
